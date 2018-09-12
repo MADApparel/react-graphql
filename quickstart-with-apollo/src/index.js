@@ -12,7 +12,7 @@ import 'tachyons'
 import './index.css'
 
 // __SIMPLE_API_ENDPOINT__ looks like: 'https://api.graph.cool/simple/v1/__SERVICE_ID__'
-const httpLink = new HttpLink({ uri: '__SIMPLE_API_ENDPOINT__' })
+const httpLink = new HttpLink({ uri: 'https://api.graph.cool/simple/v1/cjkll9o5t4yc90199xh8uckub' })
 
 const client = new ApolloClient({
   link: httpLink,

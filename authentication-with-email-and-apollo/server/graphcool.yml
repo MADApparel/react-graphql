@@ -29,15 +29,21 @@ functions:
 
   authenticate:
     type: resolver
-    schema: src/email-password/authenticate.graphql
+    schema: src/token/requireToken.graphql
     handler:
-      code: src/email-password/authenticate.js
+      code: src/token/requireToken.js
 
   loggedInUser:
     type: resolver
     schema: src/email-password/loggedInUser.graphql
     handler:
       code: src/email-password/loggedInUser.js
+
+  requireToken:
+    type: operationBefore
+    operation: Post.create
+    handler:
+      code: src/token/requireToken.js
 
 
 
@@ -49,6 +55,7 @@ functions:
 permissions:
   # Everyone can read posts
 - operation: Post.read
+  authenticated: true
   # Only authenticated users can create posts
 - operation: Post.create
   authenticated: true
@@ -67,8 +74,8 @@ permissions:
     - name
     - email
   # Only authenticated users can create relation between a user and a post
-- operation: UserPosts.connect
-  authenticated: true
+  # - operation: UserPosts.connect
+  # authenticated: true
 
   
 # Your root tokens used for functions to get full access to the API

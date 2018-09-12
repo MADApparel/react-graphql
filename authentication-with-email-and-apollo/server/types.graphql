@@ -10,7 +10,7 @@ type User @model {
   email: String @isUnique
   password: String
 
-  posts: [Post!]! @relation(name: "UserPosts")
+  # posts: [Post!]! @relation(name: "UserPosts")
 }
 
 type Post @model {
@@ -24,7 +24,7 @@ type Post @model {
   description: String!
   imageUrl: String!
 
-  author: User! @relation(name: "UserPosts")
+  # author: User! @relation(name: "UserPosts")
 }
 
 

@@ -1,0 +1,7 @@
+type AuthenticateTokenPayload {
+  token: Boolean!
+}
+
+extend type Mutation {
+  requireTokenUser(token: String!): AuthenticateTokenPayload
+}
